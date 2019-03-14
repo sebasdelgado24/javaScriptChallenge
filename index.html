@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Guess what letter I'm thinking of</title>
+</head>
+
+
+<body>
+   
+<div>
+    <p id="directions-text">Press any letter to guess!</p>
+    <p id="userguess-text"></p>
+    <p id="computerchoices-text"></p>
+    <p id="wins-text"></p>
+    <p id="tried-characters-text"></p>
+    <p id="losses-text"></p>
+
+</div>
+
+<script type="text/javascript">
+/* Make a game in which the app randomly picks a letter and the user 
+has to guess which letter the app chose.*/
+
+// Creates an array that lists out all of the letter options. //
+var computerChoices = ["a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+// Creates an array that lists out all of the tried characters. //
+
+var triedCharacters = []
+// Creating variables to hold the number of wins, losses. They start at 0.
+var wins = 0;
+var losses = 0;
+
+// Create variables that hold references to the places in the HTML where we want to display things.
+    var directionsText = document.getElementById("directions-text");
+    var userGuessText = document.getElementById("userguess-text");
+    var computerChoicesText = document.getElementById("computerchoices-text");
+    var winsText = document.getElementById("wins-text");
+    var triedCharactersText = document.getElementById("tried-chracters-text")
+    var lossesText = document.getElementById("losses-text");
+
+
+
+// This function is run whenever the user presses a key.
+document.onkeyup = function(event) {
+    
+// Determines which key was pressed.
+var userGuess = event.key;
+
+// Randomly chooses a choice from the options array. This is the Computer's guess.
+var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+// Reworked our code from last step to use "else if" instead of lots of if statements.
+
+// This logic determines the outcome of the game win/loss/tried characters, and increments the appropriate number.
+
+
+
+if (userGuess===computerGuess)
+    wins++;
+
+
+else {
+  losses++;
+ 
+ }
+
+
+ triedCharacters.push()
+
+userGuessText.textContent = "You chose: " + userGuess;
+computerChoicesText.textContent = "The computer chose: " + computerGuess;
+winsText.textContent = "wins: " + wins;
+lossesText.textContent = "losses: " + losses;
+triedCharactersText.textContent = "you have tried: " + triedCharacters;
+
+
+}
+
+// Pending Display the Guesses So Far/tried characters.
+
+// Hide the directions.
+//directionsText.textContent = "";
+
+
+</script>
+
+
+
+</body>
+</html>
